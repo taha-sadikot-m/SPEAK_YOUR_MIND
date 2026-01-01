@@ -2,10 +2,17 @@
 import { GoogleGenAI } from "@google/genai";
 
 // Always use the recommended initialization pattern and obtain API key directly from environment variables.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// API key is optional for demo purposes
+const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY || '';
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 export const generateDebateOpening = async (topic: string, config?: { difficulty?: string, userRole?: string }): Promise<string> => {
   try {
+    // Check if AI is available
+    if (!ai) {
+      return "AI opponent is currently unavailable. Please configure API key to enable AI debates.";
+    }
+
     // For general text tasks, gemini-3-flash-preview is the recommended model.
     const model = 'gemini-3-flash-preview';
     // If user is Pro, AI is Con (Against). If user is Con, AI is Pro (For).
@@ -30,6 +37,11 @@ export const generateDebateOpening = async (topic: string, config?: { difficulty
 
 export const generateInterviewQuestion = async (jobRole: string): Promise<string> => {
   try {
+    // Check if AI is available
+    if (!ai) {
+      return "AI interviewer is currently unavailable. Please configure API key to enable AI interviews.";
+    }
+
     // For general text tasks, gemini-3-flash-preview is the recommended model.
     const model = 'gemini-3-flash-preview';
     const prompt = `You are a strict hiring manager. Generate one difficult behavioral interview question for a candidate applying for a "${jobRole}" position. Keep it concise (max 40 words).`;
