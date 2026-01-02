@@ -1,0 +1,87 @@
+/* Marquee Container with Fade Effect */
+.marquee-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
+/* Marquee Animation Container */
+.marquee {
+  display: flex;
+  width: fit-content;
+  animation: scroll-left 30s linear infinite;
+  will-change: transform;
+  gap: 0;
+}
+
+/* Individual Marquee Item */
+.marquee-item {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Smooth horizontal scrolling animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* On hover, pause the animation */
+.marquee-wrapper:hover .marquee {
+  animation-play-state: paused;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .marquee {
+    animation: scroll-left 20s linear infinite;
+  }
+  
+  .marquee-wrapper {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+  }
+}
+
+/* For slower scroll effect */
+.marquee.slow {
+  animation: scroll-left 45s linear infinite;
+}
+
+/* For faster scroll effect */
+.marquee.fast {
+  animation: scroll-left 20s linear infinite;
+}

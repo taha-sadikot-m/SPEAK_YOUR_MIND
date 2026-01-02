@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
+import WhyChooseSYM from './components/WhyChooseSYM';
+import Partners from './components/Partners';
+import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import Login from './components/auth/Login';
 import AdminLogin from './components/auth/AdminLogin';
@@ -251,6 +254,9 @@ function App() {
             <main className="relative z-10">
               <Hero />
               <Features onNavigateToPlatform={handleFeatureClick} />
+              <WhyChooseSYM />
+              <Partners />
+              <Testimonials />
             </main>
             <Footer />
           </>
