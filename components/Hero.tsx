@@ -99,9 +99,12 @@ const Hero: React.FC = () => {
                 Start Your Journey
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="px-8 py-4 bg-white/5 border border-white/10 text-white rounded-full font-semibold hover:bg-white/10 transition-all backdrop-blur-md flex items-center">
-                <Play className="mr-2 w-4 h-4 fill-current" />
-                Watch Platform Demo
+              <button 
+                onClick={() => document.getElementById('inquiry-form')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-8 py-4 bg-white/5 border border-white/10 text-white rounded-full font-semibold hover:bg-white/10 transition-all backdrop-blur-md flex items-center group"
+              >
+                Contact Us
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </motion.div>
           </div>

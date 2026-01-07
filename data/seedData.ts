@@ -382,7 +382,7 @@ export const STUDENTS: Student[] = [
     score: 9.1,
     debateStats: {
       total1v1Debates: 33,
-      won1v1Debuts: 27,
+      won1v1Debates: 27,
       totalAIDebates: 20,
       wonAIDebates: 16,
       winRate: 81.1,
@@ -565,7 +565,7 @@ export const STUDENTS: Student[] = [
     sessions: 44,
     score: 8.6,
     debateStats: {
-      total1v1Debuts: 27,
+      total1v1Debates: 27,
       won1v1Debates: 21,
       totalAIDebates: 17,
       wonAIDebates: 13,
